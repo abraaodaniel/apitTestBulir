@@ -38,7 +38,8 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 app.use('/api', routes);
 
 // Database sync and server start
-const PORT = process.env.PORT || 3000;
+const PORT = 3004;
+// const PORT = process.env.PORT || 3004;
 
 sequelize.sync().then(() => {
   app.listen(PORT, () => {
