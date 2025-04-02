@@ -10,6 +10,7 @@ const router = Router();
 router.post('/users', UserController.register);
 router.get('/users', UserController.find);
 router.post('/login', UserController.login);
+router.delete('/users', UserController.remove);
 
 // Protected routes
 router.use(auth);

@@ -47,20 +47,22 @@ class BookingController {
 
   async list(req, res) {
     try {
-      const userId = req.user.id;
-      const userType = req.user.userType;
+      // const userId = req.user.id;
+      // const userType = req.user.userType;
 
-      const query = userType === 'client' 
-        ? { clientId: userId }
-        : { '$service.providerId$': userId };
+      // const query = userType === 'client' 
+      //   ? { clientId: userId }
+      //   : { '$service.providerId$': userId };
 
-      const bookings = await Booking.findAll({
-        where: query,
-        include: [
-          { model: User, as: 'client' },
-          { model: Service, as: 'service' }
-        ]
-      });
+      // const bookings = await Booking.findAll({
+      //   where: query,
+      //   include: [
+      //     { model: User, as: 'client' },
+      //     { model: Service, as: 'service' }
+      //   ]
+      // });
+
+      const bookings = await Booking.findAll()
 
       return res.json(bookings);
     } catch (error) {
